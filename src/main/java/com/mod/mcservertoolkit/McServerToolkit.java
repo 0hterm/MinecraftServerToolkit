@@ -82,6 +82,8 @@ public class McServerToolkit
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
+        // Register our custom event handlers in forge using the EVENT_BUS
         MinecraftForge.EVENT_BUS.register(new PlayerJoinEvent());
         MinecraftForge.EVENT_BUS.register(new PlayerUsedCommandEvent());
 
@@ -108,9 +110,6 @@ public class McServerToolkit
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(EXAMPLE_BLOCK_ITEM);
     }
-
-    // First Custom Event Handler
-
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
