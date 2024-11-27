@@ -3,7 +3,6 @@ package com.mod.mcservertoolkit;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -86,6 +85,7 @@ public class McServerToolkit
         // Register our custom event handlers in forge using the EVENT_BUS
         MinecraftForge.EVENT_BUS.register(new PlayerJoinEvent());
         MinecraftForge.EVENT_BUS.register(new PlayerUsedCommandEvent());
+        MinecraftForge.EVENT_BUS.register(new NoSleepMod());
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
