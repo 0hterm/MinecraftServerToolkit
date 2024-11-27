@@ -33,14 +33,16 @@ public class NoSleepMod {
             if (this.getSleepingPlayers().contains(entity)) {return;}
         }
 
+        System.out.println("Before adding: " + this.sleepingPlayerNames);
         this.sleepingPlayers.add(entity);
         this.sleepingPlayerNames.add(entity.getName().tryCollapseToString());
+        System.out.println("After adding: " + this.sleepingPlayerNames);
     }
 
     // This event will fire for every chat event.
     @SubscribeEvent
     public void kickAwakePlayers(ServerChatEvent event) {
-        if (!event.getPlayer().getType().equals("entity.minecraft.player")) { return; }
+        if (!event.getPlayer().getType().toString().equals("entity.minecraft.player")) { return; }
         /*
             To run a Minecraft command from Java, we need
             to store the server as a DedicatedServer Object.
@@ -57,9 +59,12 @@ public class NoSleepMod {
             playerNameList.add(playerName);
         }
 
-        // if the
-        String user_command = event.getRawText();
-        if (user_command.equals(".run nosleep")) {
+        System.out.println("--- All Player Names ---\n" + playerNameList);
+        System.out.println("--- Sleeping Players ---\n" + this.sleepingPlayerNames);
+
+        // If the chat is ".run nosleep", kick all non sleeping players.
+        String user_chat = event.getRawText();
+        if (user_chat.equals(".run nosleep")) {
             for (String playerName : playerNameList) {
                 if (!this.getSleepingPlayerNames().contains(playerName)) {
                     String command = "kick " + playerName;

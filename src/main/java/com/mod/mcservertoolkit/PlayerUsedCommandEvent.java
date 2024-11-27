@@ -3,15 +3,11 @@ package com.mod.mcservertoolkit;
 import com.mojang.brigadier.ParseResults;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.ServerInterface;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.event.CommandEvent;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.server.ServerLifecycleHooks;
-
-import java.io.IOException;
 
 public class PlayerUsedCommandEvent {
     @SubscribeEvent
