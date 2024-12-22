@@ -1,4 +1,10 @@
+#Contents
+- NoSleepMod
+   - User can type ".nosleep run" to kick all players not currently in a bed. Can be easily configured to only allow for server ops.
+- Anti-Cheat Plugin
+   - If a user uses /tp or /give commands, they are killed and a message is announced to the server.
 
+-------------------------------------------
 Source installation information for modders
 -------------------------------------------
 This code follows the Minecraft Forge installation methodology. It will apply
